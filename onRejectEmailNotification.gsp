@@ -12,14 +12,14 @@
     <table cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f6f7" style="width: 100%; border:0;background-color: #f5f6f7;">
         <tr>
             <td style="text-align: left;background-color:#f5f6f7;padding:10px;">
-                Это сообщение содержит информацию о настройке интернет-эквайринга для технических специалистов&nbsp;&mdash; передайте его по&nbsp;назначению, если необходимо.
+                Это сообщение содержит информацию для технических специалистов&nbsp;&mdash; перешлите его по&nbsp;назначению, если необходимо.
             </td>
         </tr>
     </table>
 
     <p>Здравствуйте!</p>
 
-    <p>Магазин <b class="name">${mp.name}</b> <g:if test="${mp.url}">(${mp.url})</g:if> отправил платёжному шлюзу &laquo;ПСКБ&raquo; отрицательный ответ (<i>"action:&nbsp;"reject"</i>) по&nbsp;следующим платежам:</p>
+    <p>Ваш сервер отправил платёжному шлюзу ПСКБ негативный ответ по&nbsp;следующим платежам в магазине <b class="name">${mp.name}</b> <g:if test="${mp.url}">(ID ..., URL ${mp.url})</g:if>:</p>
 
     <table style="background-color: #ffffff;border:0" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
         <tbody>
@@ -27,8 +27,11 @@
             <th style="text-align: left;padding: 10px;background-color:#f5f6f7;">
                 Номер платежа
             </th>
+				<th style="text-align: left;padding: 10px;background-color:#f5f6f7;">
+                Статус (код)
+            </th>
             <th style="text-align: left;padding: 10px;background-color:#f5f6f7;">
-                Статус
+                Статус (описание)
             </th>
             <th style="text-align: left;padding: 10px;background-color:#f5f6f7;">
                 Дата создания
@@ -53,6 +56,9 @@
                     <g:else>
                         <a href="https://oos.pscb.ru/cabinet/payment/${payment.id}" target="_blank">${payment.extId}</a>
                     </g:else>
+                </td>
+					 <td style="line-height: 23px; text-align: left; padding: 10px; border-top: 1px solid #cccccc">
+                    ...
                 </td>
                 <td style="line-height: 23px; text-align: left; padding: 10px; border-top: 1px solid #cccccc">
                     <common:paymentState payment="${payment}" />
